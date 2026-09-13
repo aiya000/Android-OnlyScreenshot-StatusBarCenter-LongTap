@@ -65,7 +65,8 @@ AIYA000_KEY_PASSWORD=<the same password>
 
     Expected, and a mismatch means the wrong key was used:
 
-    - v2 `true`, v3 `true`, v1 `false` (v1 is only needed below API 24; `minSdk` is 30)
+    - v3 `true`, v2 `false`, v1 `false`. `minSdk` is 30 and v3 covers API 28 and up, so gradle adds
+      neither of the older schemes. This differs from TempoPad, where `minSdk` 26 still needs v2
     - `Signer #1 certificate DN: CN=aiya000, O=aiya000, C=JP`
     - `Signer #1 certificate SHA-256 digest: 9c5ed06732d180ca3aca8bcf611ad25c983b6bf89ddd56cc7e9fae7d57844991`
     - `Signer #1 key size (bits): 4096`
