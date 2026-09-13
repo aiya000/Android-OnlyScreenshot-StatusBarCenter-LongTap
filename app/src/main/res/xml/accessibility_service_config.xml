@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    No accessibilityEventTypes and no canRetrieveWindowContent: the service never asks to
+    be told what is on screen or what is typed. It only wants the two abilities it cannot
+    get any other way, which are taking a screenshot and performing global actions (for
+    the swipe that the hot zone would otherwise swallow).
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:canRetrieveWindowContent="false"
+    android:canTakeScreenshot="true"
+    android:description="@string/service_description"
+    android:notificationTimeout="100"
+    android:summary="@string/service_summary" />

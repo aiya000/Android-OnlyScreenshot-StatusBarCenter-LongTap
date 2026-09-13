@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OnlyScreenshot</string>
+
+    <string name="service_label">OnlyScreenshot</string>
+    <string name="service_summary">ステータスバーの長押しでスクリーンショットを撮ります。</string>
+    <string name="service_description">ステータスバーの一部に透明な領域を置き、そこが長押しされたときにスクリーンショットを撮ります。画面の内容の読み取りや、入力内容の取得は行いません。</string>
+
+    <string name="status_enabled">サービスは有効です。</string>
+    <string name="status_disabled">サービスが無効です。ユーザー補助の設定から OnlyScreenshot を有効にしてください。</string>
+    <string name="open_accessibility_settings">ユーザー補助の設定を開く</string>
+    <string name="sideload_hint">一覧に表示されない場合は、アプリ情報のメニューから「制限付き設定を許可」を実行してください。</string>
+
+    <string name="section_zone">長押しする領域</string>
+    <string name="zone_width">幅（画面幅に対する割合）</string>
+    <string name="zone_height">高さ（ステータスバーの高さに対する割合）</string>
+    <string name="zone_offset">左右の位置（中央からのずれ）</string>
+    <string name="zone_top_offset">上下の位置（ステータスバーの高さに対する割合で下げる）</string>
+    <string name="long_press_duration">長押しと判定するまでの時間</string>
+    <string name="percent_value">%1$d%%</string>
+    <string name="millis_value">%1$d ms</string>
+
+    <string name="section_behavior">動作</string>
+    <string name="show_zone">領域を表示する</string>
+    <string name="show_zone_description">位置合わせのあいだだけ、領域を半透明の色で塗ります。</string>
+    <string name="swipe_down_opens_shade">下方向のスワイプで通知を開く</string>
+    <string name="swipe_down_opens_shade_description">領域はタッチを横取りするため、そのままでは通知を引き下ろせません。代わりにこのアプリが通知パネルを開きます。</string>
+    <string name="capture_mode">スクリーンショットの撮り方</string>
+    <string name="capture_mode_system">システム標準（プレビューが出ます）</string>
+    <string name="capture_mode_silent">自分で保存（プレビューを出しません）</string>
+
+    <string name="saved_to">保存しました: %1$s</string>
+    <string name="capture_failed">スクリーンショットを撮れませんでした（コード %1$d）。</string>
+    <string name="save_failed">スクリーンショットを保存できませんでした。</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- The status bar, with the hot zone sitting in the middle of it. -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,30h48v5h-48z" />
+    <path
+        android:fillColor="#FFD166"
+        android:pathData="M45,28h18v9h-18z" />
+    <!-- The camera below it. -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,46h40a4,4 0,0 1,4 4v24a4,4 0,0 1,-4 4h-40a4,4 0,0 1,-4 -4v-24a4,4 0,0 1,4 -4z" />
+    <path
+        android:fillColor="#3B3B58"
+        android:pathData="M54,62m-12,0a12,12 0,1 0,24 0a12,12 0,1 0,-24 0" />
+    <path
+        android:fillColor="#FFD166"
+        android:pathData="M54,62m-7,0a7,7 0,1 0,14 0a7,7 0,1 0,-14 0" />
+</vector>
