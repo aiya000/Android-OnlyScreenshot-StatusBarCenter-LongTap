@@ -6,6 +6,16 @@ Nothing is drawn, nothing sits in the notification area, there is no button to f
 screen over the status bar that waits for a long press, and the settings screen that says how big that strip
 is. The name is the whole specification.
 
+## Demo
+
+A long press on the middle of the status bar, with a browser open behind it. The circle is Android's touch
+indicator, turned on for the recording -- the app draws nothing of its own, so until the flash and the
+preview in the corner there is nothing to see.
+
+<img src="docs/demo.gif" alt="Long-pressing the middle of the status bar over a browser, and the screenshot being taken" width="320">
+
+<sub>[video](docs/demo.mp4)</sub>
+
 ## Why it is an accessibility service
 
 Two things this app needs can only be had one way.
