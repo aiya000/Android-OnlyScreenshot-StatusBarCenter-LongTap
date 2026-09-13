@@ -48,9 +48,13 @@ leave most of the status bar alone.
 The middle of the status bar is not in the same place on two devices -- a cutout, a punch hole, a rounded
 corner all move it -- so the zone is adjustable rather than guessed.
 
+<img src="docs/settings.png" alt="The settings screen, with the hot zone painted over the middle of the status bar" width="320">
+
+<sub>領域を表示する is on in the shot -- it is the only way the zone is ever visible.</sub>
+
 | | |
 |---|---|
-| 幅 | percentage of the screen width. 40% by default, centred |
+| 幅 | percentage of the screen width. 30% by default, centred |
 | 高さ | percentage of the status bar height. 100% is exactly the status bar |
 | 左右の位置 | offset from the centre, as a percentage of the screen width |
 | 上下の位置 | how far below the top edge the zone starts, as a percentage of the status bar height. 100% puts it just *under* the status bar |

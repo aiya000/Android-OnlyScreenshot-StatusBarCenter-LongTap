@@ -35,7 +35,7 @@ enum class CaptureMode {
  * zone to just below it.
  */
 data class HotZoneSettings(
-    val widthPercent: Int = 40,
+    val widthPercent: Int = 30,
     val heightPercent: Int = 100,
     val offsetPercent: Int = 0,
     val topOffsetPercent: Int = 0,
