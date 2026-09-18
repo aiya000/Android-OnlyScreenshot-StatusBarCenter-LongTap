@@ -6,7 +6,6 @@ import android.graphics.Color
 import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.view.View
-import android.view.ViewConfiguration
 import kotlin.math.abs
 
 /** The zone when it is being shown, translucent enough to aim with but not to hide anything. */
@@ -29,7 +28,12 @@ class HotZoneView(
     private var longPressMillis = HotZoneSettings().longPressMillis.toLong()
     private var swipeDownEnabled = true
 
-    private val touchSlop = ViewConfiguration.get(context).scaledTouchSlop
+    /**
+     * How far the finger may slide before the touch is no longer a long press. It also
+     * decides when a downward drag becomes a pull on the notification panel, so that a
+     * slip small enough to be ignored cannot open the panel either.
+     */
+    private var moveTolerancePx = dpToPx(HotZoneSettings().moveToleranceDp)
 
     private var downX = 0f
     private var downY = 0f
@@ -45,6 +49,7 @@ class HotZoneView(
 
     fun applySettings(settings: HotZoneSettings) {
         longPressMillis = settings.longPressMillis.toLong()
+        moveTolerancePx = dpToPx(settings.moveToleranceDp)
         swipeDownEnabled = settings.swipeDownOpensShade
         setBackgroundColor(if (settings.showZone) HighlightColor else Color.TRANSPARENT)
     }
@@ -64,13 +69,13 @@ class HotZoneView(
                 if (decided) return true
                 val dx = event.x - downX
                 val dy = event.y - downY
-                if (dy > touchSlop && dy > abs(dx)) {
+                if (dy > moveTolerancePx && dy > abs(dx)) {
                     // A pull towards the notification panel. It can no longer reach the
                     // status bar, so open the panel outright.
                     removeCallbacks(longPress)
                     decided = true
                     if (swipeDownEnabled) onSwipeDown()
-                } else if (abs(dx) > touchSlop || abs(dy) > touchSlop) {
+                } else if (abs(dx) > moveTolerancePx || abs(dy) > moveTolerancePx) {
                     // Moved off in some other direction; this is not a long press any more.
                     removeCallbacks(longPress)
                 }
@@ -84,6 +89,8 @@ class HotZoneView(
         }
         return true
     }
+
+    private fun dpToPx(dp: Int): Float = dp * resources.displayMetrics.density
 
     override fun onDetachedFromWindow() {
         removeCallbacks(longPress)

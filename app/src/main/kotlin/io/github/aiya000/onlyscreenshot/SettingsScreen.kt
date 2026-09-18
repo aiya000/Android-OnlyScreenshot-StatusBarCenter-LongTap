@@ -82,6 +82,14 @@ fun SettingsScreen(
                     step = 50,
                     onValueChange = { onSettingsChanged(settings.copy(longPressMillis = it)) },
                 )
+                IntSlider(
+                    label = stringResource(R.string.move_tolerance),
+                    valueText = stringResource(R.string.dp_value, settings.moveToleranceDp),
+                    value = settings.moveToleranceDp,
+                    range = MoveToleranceDpRange,
+                    step = 1,
+                    onValueChange = { onSettingsChanged(settings.copy(moveToleranceDp = it)) },
+                )
             }
 
             Section(stringResource(R.string.section_behavior)) {

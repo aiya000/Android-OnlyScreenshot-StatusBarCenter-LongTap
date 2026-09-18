@@ -17,8 +17,10 @@
     <string name="zone_offset">左右の位置（中央からのずれ）</string>
     <string name="zone_top_offset">上下の位置（ステータスバーの高さに対する割合で下げる）</string>
     <string name="long_press_duration">長押しと判定するまでの時間</string>
+    <string name="move_tolerance">長押し中に指がすべってもよい距離</string>
     <string name="percent_value">%1$d%%</string>
     <string name="millis_value">%1$d ms</string>
+    <string name="dp_value">%1$d dp</string>
 
     <string name="section_behavior">動作</string>
     <string name="show_zone">領域を表示する</string>

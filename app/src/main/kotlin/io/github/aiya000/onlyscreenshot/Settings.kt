@@ -12,6 +12,7 @@ private const val HeightPercentKey = "zone_height_percent"
 private const val OffsetPercentKey = "zone_offset_percent"
 private const val TopOffsetPercentKey = "zone_top_offset_percent"
 private const val LongPressMillisKey = "long_press_millis"
+private const val MoveToleranceDpKey = "move_tolerance_dp"
 private const val ShowZoneKey = "show_zone"
 private const val SwipeDownOpensShadeKey = "swipe_down_opens_shade"
 private const val CaptureModeKey = "capture_mode"
@@ -33,6 +34,10 @@ enum class CaptureMode {
  * and the top offset are percentages of the status bar height, so that a height of 100
  * with a top offset of 0 is exactly the status bar, and a top offset of 100 drops the
  * zone to just below it.
+ *
+ * [moveToleranceDp] is how far the finger may slide before the touch stops being a long
+ * press. A finger held still on a strip this thin is never quite still, so the system's
+ * own touch slop -- meant for a finger on its way somewhere -- gives up too readily.
  */
 data class HotZoneSettings(
     val widthPercent: Int = 30,
@@ -40,6 +45,7 @@ data class HotZoneSettings(
     val offsetPercent: Int = 0,
     val topOffsetPercent: Int = 0,
     val longPressMillis: Int = 500,
+    val moveToleranceDp: Int = 16,
     val showZone: Boolean = false,
     val swipeDownOpensShade: Boolean = true,
     val captureMode: CaptureMode = CaptureMode.System,
@@ -50,6 +56,7 @@ val HeightPercentRange = 50..400
 val OffsetPercentRange = -50..50
 val TopOffsetPercentRange = 0..300
 val LongPressMillisRange = 200..1500
+val MoveToleranceDpRange = 2..64
 
 fun Context.readSettings(): HotZoneSettings {
     val preferences = settingsPreferences()
@@ -60,6 +67,7 @@ fun Context.readSettings(): HotZoneSettings {
         offsetPercent = preferences.getInt(OffsetPercentKey, defaults.offsetPercent),
         topOffsetPercent = preferences.getInt(TopOffsetPercentKey, defaults.topOffsetPercent),
         longPressMillis = preferences.getInt(LongPressMillisKey, defaults.longPressMillis),
+        moveToleranceDp = preferences.getInt(MoveToleranceDpKey, defaults.moveToleranceDp),
         showZone = preferences.getBoolean(ShowZoneKey, defaults.showZone),
         swipeDownOpensShade = preferences.getBoolean(SwipeDownOpensShadeKey, defaults.swipeDownOpensShade),
         captureMode = runCatching {
@@ -75,6 +83,7 @@ fun Context.writeSettings(settings: HotZoneSettings) {
         putInt(OffsetPercentKey, settings.offsetPercent)
         putInt(TopOffsetPercentKey, settings.topOffsetPercent)
         putInt(LongPressMillisKey, settings.longPressMillis)
+        putInt(MoveToleranceDpKey, settings.moveToleranceDp)
         putBoolean(ShowZoneKey, settings.showZone)
         putBoolean(SwipeDownOpensShadeKey, settings.swipeDownOpensShade)
         putString(CaptureModeKey, settings.captureMode.name)

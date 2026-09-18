@@ -59,6 +59,7 @@ corner all move it -- so the zone is adjustable rather than guessed.
 | 左右の位置 | offset from the centre, as a percentage of the screen width |
 | 上下の位置 | how far below the top edge the zone starts, as a percentage of the status bar height. 100% puts it just *under* the status bar |
 | 長押しと判定するまでの時間 | 200ms to 1500ms, 500ms by default |
+| 長押し中に指がすべってもよい距離 | 2dp to 64dp, 16dp by default. A slip smaller than this is ignored; past it the long press is abandoned, and a downward drag opens the notification panel |
 | 領域を表示する | paints the zone translucent while you aim it. Turn it off afterwards, or it will be in the screenshots |
 | 下方向のスワイプで通知を開く | the borrowed touch, handed back |
 | スクリーンショットの撮り方 | the system one (with its flash and preview), or a silent one this app writes to `Pictures/Screenshots` itself |
